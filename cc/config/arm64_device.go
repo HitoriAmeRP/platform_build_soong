@@ -39,7 +39,7 @@ var (
 			"-march=armv8.2-a+aes+crypto+fp16+sha2",
 		},
 		"armv8-2a-dotprod": []string{
-			"-march=armv8.2-a+dotprod+aes+crypto+fp16+sha2",
+			"-march=armv8.2-a+lse+fp16+dotprod+aes+crypto+fp16+sha2",
 		},
 	}
 
