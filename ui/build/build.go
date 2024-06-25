@@ -238,6 +238,10 @@ func Build(ctx Context, config Config) {
 		ctx.Verboseln("Skipping Ninja as requested")
 		what = what &^ RunNinja
 	}
+	if config.SkipSoong() {
+		ctx.Verboseln("Skipping Soong as requested")
+		what = what &^ RunSoong
+	}
 
 	if config.StartGoma() {
 		startGoma(ctx, config)

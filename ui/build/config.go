@@ -50,6 +50,7 @@ type configImpl struct {
 	skipKati       bool
 	skipKatiNinja  bool
 	skipNinja      bool
+	skipSoong      bool
 	skipSoongTests bool
 
 	// From the product config
@@ -576,6 +577,8 @@ func (c *configImpl) parseArgs(ctx Context, args []string) {
 		} else if arg == "--skip-kati" {
 			// TODO: remove --skip-kati once module builds have been migrated to --song-only
 			c.skipKati = true
+		} else if arg == "--skip-soong" {
+			c.skipSoong = true
 		} else if arg == "--soong-only" {
 			c.skipKati = true
 			c.skipKatiNinja = true
@@ -786,6 +789,10 @@ func (c *configImpl) SkipKatiNinja() bool {
 
 func (c *configImpl) SkipNinja() bool {
 	return c.skipNinja
+}
+
+func (c *configImpl) SkipSoong() bool {
+	return c.skipSoong
 }
 
 func (c *configImpl) SetSkipNinja(v bool) {
